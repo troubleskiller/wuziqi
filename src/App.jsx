@@ -1,10 +1,20 @@
 import React, { Fragment } from 'react';
 import MyGame from './components/myGame';
-
-export default function App (props) {
+import NewGame from './components/newGame';
+export default function App(props) {
     return (
-        <Fragment>
-            <MyGame/>
-        </Fragment>
+        <div style={{
+            height: "auto",
+            padding: "0 0 50px"
+        }}>
+            <div>
+                <h1>NewGame</h1>
+                <NewGame />
+            </div>
+            <div>
+                <h1>OldGame</h1>
+                <MyGame />
+            </div>
+        </div>
     )
 }
