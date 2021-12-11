@@ -129,15 +129,16 @@ export function get2DArray(row, column, initialValue) {
     }
     return result;
 }
-
-export function getRealCoordinate(x, y) { //计算棋子在画布上的真实位置
+//计算棋子在画布上的真实位置
+export function getRealCoordinate(x, y) { 
     let realX = Math.round(x / BASE_WIDTH) * (BASE_WIDTH);
     let realY = Math.round(y / BASE_HEIGHT) * (BASE_HEIGHT);
     let realXIndex = Math.round((x - 40) / (BASE_WIDTH));
     let realYIndex = Math.round((y - 40) / (BASE_HEIGHT));
     return [realX, realY, realXIndex, realYIndex];
 }
-export function getCircle(ctx, x, y, r = RADIUS, fillStyle) { //画圆
+ //画圆
+export function getCircle(ctx, x, y, r = RADIUS, fillStyle) {
     ctx.beginPath();
     ctx.arc(x, y, r, 0, CIRCLE);
     if (fillStyle) {

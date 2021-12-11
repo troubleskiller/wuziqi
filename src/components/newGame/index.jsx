@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, useReducer } from 'react'
 import { getRealCoordinate, getCircle } from "./util";
-import { RESET, SELECT, BASE_WIDTH, BASE_HEIGHT, CIRCLE, RADIUS } from './const';
+import { RESET, SELECT, BASE_WIDTH, BASE_HEIGHT, CIRCLE, RADIUS, COLUMN, ROW } from './const';
 
 import { reducer, initialState } from './store/reduce';
 
@@ -23,12 +23,12 @@ export default function NewGame(props) {
         let canvas = canvasRef.current;
         let ctx = canvas.getContext('2d');
         ctx.strokeStyle = "#999"
-        for (let x = 0; x <= 20; x++) {
+        for (let x = 0; x <= COLUMN; x++) {
             ctx.moveTo(x * BASE_WIDTH, 0);
             ctx.lineTo(x * BASE_WIDTH, height);
             ctx.stroke();
         }
-        for (let y = 0; y <= 20; y++) {
+        for (let y = 0; y <= ROW; y++) {
             ctx.moveTo(0, y * BASE_HEIGHT);
             ctx.lineTo(width, y * BASE_HEIGHT);
             ctx.stroke();
@@ -105,14 +105,14 @@ export default function NewGame(props) {
     useEffect(() => {
         if (gameOver) {
             /**  计算获胜路线的起点和终点 start           */
-            let resultX = result.map(item => item.x);
-            let resultY = result.map(item => item.y);
+            let start = result.sort((a, b) => a.x - b.x)[0];
+            let end = result.sort((a, b) => a.x - b.x)[4];
 
-            let startX = (Math.min.apply(null, resultX) + 1) * BASE_WIDTH;
-            let endX = (Math.max.apply(null, resultX) + 1) * BASE_WIDTH;
+            let startX = (start.x + 1) * BASE_WIDTH;
+            let endX = (end.x + 1) * BASE_WIDTH;
 
-            let startY = (Math.min.apply(null, resultY) + 1) * BASE_HEIGHT;
-            let endY = (Math.max.apply(null, resultY) + 1) * BASE_HEIGHT;
+            let startY = (start.y + 1) * BASE_HEIGHT;
+            let endY = (end.y + 1) * BASE_HEIGHT;
             /**  计算获胜路线的起点和终点 end           */
 
             /** 绘制获胜路线 start */
