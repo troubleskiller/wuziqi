@@ -1,0 +1,17 @@
+{  "prettier.configPath": ".prettierrc.js",
+  "eslint.options": {
+    "extensions": [".js", ".ts", ".tsx", "jsx", "html"]
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": [
+    "javascript",
+    {
+      "language": "react",
+      "autoFix": true
+    },
+    "html",
+    "vue"
+  ]
+}

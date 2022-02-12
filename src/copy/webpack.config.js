@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { webpack } = require('webpack');
 
 module.exports = {
-  entry: './src/index.tsx',
+  entry: './src/index.jsx',
   mode: 'development',
   stats: 'errors-only',
   output: {
@@ -16,19 +16,19 @@ module.exports = {
       '@': path.resolve(__dirname, 'src'),
       '~': path.resolve(__dirname)
     },
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
-    mainFiles: ['index.js', 'index.jsx', 'index.ts', 'index.tsx']
+    extensions: ['.js', '.jsx'],
+    mainFiles: ['index.js', 'index.jsx']
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx|ts|tsx)$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: [
           {
             loader: 'babel-loader?cacheDirectory=true',
             options: {
-              presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript']
+              presets: ['@babel/preset-env', '@babel/preset-react']
             }
           }
         ]
@@ -48,7 +48,6 @@ module.exports = {
     // }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'Nougat.online',
       template: path.resolve(__dirname, 'public/index.html'),
       filename: 'index.html'
     })
@@ -61,6 +60,6 @@ module.exports = {
     hot: true,
     compress: true,
     port: 3000,
-    open: false
+    open: true
   }
 };

@@ -1,5 +1,3 @@
-import {reducer, initialState} from './reducer';
+import { reducer, initialState } from './reducer';
 
-export  {
-    reducer, initialState
-}
+export { reducer, initialState };
