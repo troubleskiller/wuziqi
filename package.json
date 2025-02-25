@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "./src/index.js",
+  "homepage": "https://troubleskiller.github.io/wuziqi/",
   "scripts": {
     "postinstall": "husky install",
     "start": "webpack serve",
     "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -b master -d build"
   },
   "keywords": [],
   "author": "",
@@ -21,8 +23,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.0.2",
-    "sass-loader": "^12.4.0",
-    "style-loader": "^3.3.1"
+    "style-loader": "^3.3.1",
+    "typescript": "^5.7.3"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.16.7",
@@ -39,11 +41,13 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "gh-pages": "^6.3.0",
     "html-webpack-plugin": "^5.5.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.3",
-    "node-sass": "^7.0.0",
     "prettier": "^2.5.1",
+    "sass": "^1.85.1",
+    "sass-loader": "^16.0.5",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.6.0"
